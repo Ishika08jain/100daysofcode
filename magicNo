@@ -1,0 +1,29 @@
+// MAGIC NUMBER - sum of all the digits till end if 1 then it is a magic number. 
+//Example- 1234-->1+2=3+4=10, again 1+0=1, therfore, it is a magic number.
+
+#include <iostream>
+using namespace std;
+
+int MagicNumber(int n) {
+   int digit_sum = 0;
+   while (n > 0 || digit_sum > 9) {
+      if (n == 0) {
+         n = digit_sum;
+         digit_sum = 0;
+      }
+      digit_sum += n % 10;
+      n /= 10;
+   }
+   return (digit_sum == 1);
+}
+
+int main() {
+   int number = 10091;
+   if(MagicNumber(number)){
+      cout << number << " is magic number";
+   } 
+   else {
+      cout << number << " is not magic number";
+   }
+}
+
